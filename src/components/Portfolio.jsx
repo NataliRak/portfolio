@@ -1,17 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 import Title from "./Title";
-import placeholder from "assets/placeholder.png";
+
 import loadmore from "assets/loadmore.png";
 import portfolio1 from "assets/portfolio1.png";
 import portfolio2 from "assets/portfolio2.png";
 import { motion } from "framer-motion";
 import { useScroll } from "./useScroll";
 import { portfolioAnimation } from "animations";
-import { portfolioWorks } from "portfolio";
-import work from "../assets/works/Art-Shop.png";
-import work2 from "../assets/works/weather-app.png";
-import work3 from "../assets/works/todo-app.png";
+
+import {
+  BlogCard,
+  CardInfo,
+  ExternalLinks,
+  GridContainer,
+  HeaderThree,
+  Hr,
+  Tag,
+  TagList,
+  TitleContent,
+  UtilityList,
+  Img,
+} from "./Projects/ProjectsStyles";
+
+import { projects } from "../constans/constans";
 function Portfolio() {
   const [element, controls] = useScroll();
   return (
@@ -26,8 +38,7 @@ function Portfolio() {
         <h2>Check My super awesome portfolio</h2>
       </div>
       <div className="grid">
-        <motion.div
-          className="child-one grid-box"
+        {/* <motion.div
           variants={portfolioAnimation}
           animate={controls}
           transition={{
@@ -36,108 +47,35 @@ function Portfolio() {
             duration: 0.8,
           }}
           whileInView={{ opacity: 1 }}
-        >
-          <img src={placeholder} alt="placeholder" />
-        </motion.div>
-        <motion.div
-          className="child-two grid-box"
-          variants={portfolioAnimation}
-          animate={controls}
-          transition={{
-            delay: 0.03,
-            type: "tween",
-            duration: 0.8,
-          }}
-          viewport={{ once: true }}
-        >
-          {" "}
-          <a href={portfolioWorks.work}>
-            {" "}
-            <img src={work} style={{ width: "30rem" }} alt="placeholder" />
-          </a>
-        </motion.div>
-        <motion.div
-          className="child-three grid-box"
-          variants={portfolioAnimation}
-          animate={controls}
-          transition={{
-            delay: 0.03,
-            type: "tween",
-            duration: 0.8,
-          }}
-          viewport={{ once: true }}
-        >
-          <a href={portfolioWorks.work3}>
-            <img src={work3} style={{ width: "16rem" }} alt="placeholder" />
-          </a>
-        </motion.div>
-        <motion.div
-          className="child-four grid-box"
-          variants={portfolioAnimation}
-          animate={controls}
-          transition={{
-            delay: 0.03,
-            type: "tween",
-            duration: 0.8,
-          }}
-          viewport={{ once: true }}
-        >
-          <img src={placeholder} alt="placeholder" />
-        </motion.div>
-        <motion.div
-          className="child-five grid-box"
-          variants={portfolioAnimation}
-          animate={controls}
-          transition={{
-            delay: 0.03,
-            type: "tween",
-            duration: 0.8,
-          }}
-          viewport={{ once: true }}
-        >
-          <img src={placeholder} alt="placeholder" />
-        </motion.div>
-        <motion.div
-          className="child-six grid-box"
-          variants={portfolioAnimation}
-          animate={controls}
-          transition={{
-            delay: 0.03,
-            type: "tween",
-            duration: 0.8,
-          }}
-          viewport={{ once: true }}
-        >
-          <a href={portfolioWorks.work2}>
-            <img src={work2} style={{ height: "30rem" }} alt="placeholder" />
-          </a>
-        </motion.div>
-        <motion.div
-          className="child-seven grid-box"
-          variants={portfolioAnimation}
-          animate={controls}
-          transition={{
-            delay: 0.03,
-            type: "tween",
-            duration: 0.8,
-          }}
-          viewport={{ once: true }}
-        >
-          <img src={placeholder} alt="placeholder" />
-        </motion.div>
-        <motion.div
-          className="child-eight grid-box"
-          variants={portfolioAnimation}
-          animate={controls}
-          transition={{
-            delay: 0.03,
-            type: "tween",
-            duration: 0.8,
-          }}
-          viewport={{ once: true }}
-        >
-          <img src={placeholder} alt="placeholder" />
-        </motion.div>
+        > */}
+        <GridContainer>
+          {projects.map((p, i) => {
+            return (
+              <BlogCard key={i}>
+                <Img src={p.image} />
+
+                <HeaderThree title={p.title}>{p.title}</HeaderThree>
+                <Hr />
+
+                <CardInfo className="card-info">{p.description}</CardInfo>
+                <div>
+                  <TitleContent>Tech Stack</TitleContent>
+                  <Hr />
+                  <TagList>
+                    {p.tags.map((t, i) => {
+                      return <Tag key={i}>{t}</Tag>;
+                    })}
+                  </TagList>
+                </div>
+                <UtilityList>
+                  <ExternalLinks href={p.visit}>Live Preview</ExternalLinks>
+                  <ExternalLinks href={p.source}>Source Code</ExternalLinks>
+                </UtilityList>
+              </BlogCard>
+            );
+          })}
+        </GridContainer>
+        {/* </motion.div> */}
       </div>
       <div className="portfolio-more">
         <span>Load More</span>
@@ -188,67 +126,7 @@ const Section = styled.section`
   .grid {
     padding: 0 15rem;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas:
-      "one one two two"
-      "one one three four"
-      "five six seven seven"
-      "eight six seven seven";
-    .grid-box {
-      height: 15rem;
-      width: 100%;
-      background-color: var(--primary-color);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      img {
-        transition: 0.4s ease-in-out;
-      }
-      &:hover {
-        img {
-          transform: scale(1.1);
-        }
-      }
-      &:nth-of-type(1) {
-        grid-area: one;
-        height: 100%;
-        background-color: #8860e66a;
-        z-index: 10;
-      }
-      &:nth-of-type(2) {
-        z-index: 10;
-        grid-area: two;
-        background-color: #662d91ca;
-        height: 100%;
-      }
-      &:nth-of-type(3) {
-        grid-area: three;
-        background-color: #8860e6b0;
-      }
-      &:nth-of-type(4) {
-        grid-area: four;
-      }
-      &:nth-of-type(5) {
-        z-index: 10;
-        grid-area: five;
-        background-color: #8860e6b0;
-      }
-      &:nth-of-type(6) {
-        grid-area: six;
-        height: 100%;
-        background-color: #662d91ca;
-      }
-      &:nth-of-type(7) {
-        grid-area: seven;
-        background-color: #8860e66a;
-        height: 100%;
-      }
-      &:nth-of-type(8) {
-        z-index: 10;
-        grid-area: eight;
-      }
-    }
+    grid-template-columns: repeat(2, 1fr);
   }
   .portfolio-more {
     display: flex;
@@ -276,26 +154,8 @@ const Section = styled.section`
       }
     }
     .grid {
-      padding: 2rem 4rem;
+      padding: 2rem 0.3rem;
       grid-template-columns: 1fr;
-      grid-template-areas:
-        "one"
-        "two"
-        "three"
-        "four"
-        "five"
-        "six"
-        "seven"
-        "eight";
-      .grid-box {
-        height: 18rem !important;
-        img {
-          width: 25rem;
-          height: 15rem;
-        }
-      }
-      
-      }
     }
   }
 `;

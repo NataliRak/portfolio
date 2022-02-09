@@ -86,7 +86,7 @@ const Section = styled.section`
         }
       }
       &__image {
-        margin-bottom: 3rem;
+        margin-bottom: 2.5rem;
       }
       &__title {
         span {
@@ -96,7 +96,7 @@ const Section = styled.section`
         h2 {
           font-size: 3rem;
           line-height: 2.5rem;
-          margin-bottom: 5rem;
+          margin-bottom: 3rem;
           color: var(--secondary-color);
         }
       }
@@ -108,10 +108,10 @@ const Section = styled.section`
   }
   @media screen and (min-width: 280px) and (max-width: 1080px) {
     .services {
-      margin: 2rem 0;
+      margin: 0.8rem 0;
       grid-template-columns: 1fr;
       gap: 2rem;
-      padding: 0 2rem;
+      padding: 0 1rem;
     }
   }
 `;

@@ -10,8 +10,8 @@ function Skills() {
   const [element, controls] = useScroll();
   const skillsData = [
     {
-      name: "HTML",
       amount: 80,
+      name: "HTML",
     },
     {
       name: "CSS",
@@ -58,8 +58,8 @@ function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
               >
                 <div className="container">
-                  <progress value={amount} max="100" />
                   <span>{name}</span>
+                  <progress value={amount} max="100" />
                 </div>
                 <h3>{amount}%</h3>
               </motion.div>
@@ -140,7 +140,7 @@ const Section = styled.section`
         .container {
           display: flex;
           flex-direction: column;
-          gap: 2.5rem;
+          gap: 2rem;
           span {
             text-transform: uppercase;
             letter-spacing: 0.2rem;
@@ -204,7 +204,10 @@ const Section = styled.section`
         justify-content: center;
         &__bar {
           .container {
-            gap: 1rem;
+            gap: 0.1rem;
+            span {
+              margin-top: 1.5rem;
+            }
             progress {
               width: 12rem;
               height: 0.5rem;
