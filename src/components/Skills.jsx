@@ -23,11 +23,11 @@ function Skills() {
     },
     {
       name: "JavaScript",
-      amount: 70,
+      amount: 75,
     },
     {
       name: "NodeJs",
-      amount: 60,
+      amount: 70,
     },
   ];
   return (
@@ -39,7 +39,7 @@ function Skills() {
       </div>
       <div className="skills__title">
         <p>My Skills</p>
-        <h2>Check My super awesome skills</h2>
+        <h2>Check My skills</h2>
       </div>
       <div className="skills">
         <div className="skills__bars">
@@ -73,7 +73,7 @@ function Skills() {
             the latest front-end and back-end technologies. Motivated designer
             and developer with experience creating custom websites with ReactJs,
             JavaScript, HTML5, and CSS3. Strong collaboration skills and proven
-            history of application development. Wordpress and MySQL.
+            history of application development.
           </p>
         </div>
       </div>
