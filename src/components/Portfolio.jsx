@@ -24,6 +24,8 @@ import {
 } from "./Projects/ProjectsStyles";
 
 import { projects } from "../constans/constans";
+import { nodeProjects } from "../constans/constans";
+import { phpProjects } from "../constans/constans";
 function Portfolio() {
   const [element, controls] = useScroll();
   return (
@@ -33,9 +35,54 @@ function Portfolio() {
         <img src={portfolio1} alt="Design" className="design1" />
         <img src={portfolio2} alt="Design" className="design2" />
       </div>
+
       <div className="portfolio__title">
         <p>My Work</p>
-        <h2>Check My super awesome portfolio</h2>
+        <h2>NodeJS projects</h2>
+      </div>
+      <div className="grid">
+        {/* <motion.div
+          variants={portfolioAnimation}
+          animate={controls}
+          transition={{
+            delay: 0.03,
+            type: "tween",
+            duration: 0.8,
+          }}
+          whileInView={{ opacity: 1 }}
+        > */}
+        <GridContainer>
+          {nodeProjects.map((p, i) => {
+            return (
+              <BlogCard key={i}>
+                <Img src={p.image} />
+
+                <HeaderThree title={p.title}>{p.title}</HeaderThree>
+                <Hr />
+
+                <CardInfo className="card-info">{p.description}</CardInfo>
+                <div>
+                  <TitleContent>Tech Stack</TitleContent>
+                  <Hr />
+                  <TagList>
+                    {p.tags.map((t, i) => {
+                      return <Tag key={i}>{t}</Tag>;
+                    })}
+                  </TagList>
+                </div>
+                <UtilityList>
+                  <ExternalLinks href={p.source}>Source Code</ExternalLinks>
+                </UtilityList>
+              </BlogCard>
+            );
+          })}
+        </GridContainer>
+        {/* </motion.div> */}
+      </div>
+
+      <div className="portfolio__title">
+        <p>My Work</p>
+        <h2>React and JavaScript projects</h2>
       </div>
       <div className="grid">
         {/* <motion.div
@@ -77,6 +124,51 @@ function Portfolio() {
         </GridContainer>
         {/* </motion.div> */}
       </div>
+
+      <div className="portfolio__title">
+        <p>My Work</p>
+        <h2>PHP projects</h2>
+      </div>
+      <div className="grid">
+        {/* <motion.div
+          variants={portfolioAnimation}
+          animate={controls}
+          transition={{
+            delay: 0.03,
+            type: "tween",
+            duration: 0.8,
+          }}
+          whileInView={{ opacity: 1 }}
+        > */}
+        <GridContainer>
+          {phpProjects.map((p, i) => {
+            return (
+              <BlogCard key={i}>
+                <Img src={p.image} />
+
+                <HeaderThree title={p.title}>{p.title}</HeaderThree>
+                <Hr />
+
+                <CardInfo className="card-info">{p.description}</CardInfo>
+                <div>
+                  <TitleContent>Tech Stack</TitleContent>
+                  <Hr />
+                  <TagList>
+                    {p.tags.map((t, i) => {
+                      return <Tag key={i}>{t}</Tag>;
+                    })}
+                  </TagList>
+                </div>
+                <UtilityList>
+                  <ExternalLinks href={p.visit}>Live Preview</ExternalLinks>
+                </UtilityList>
+              </BlogCard>
+            );
+          })}
+        </GridContainer>
+        {/* </motion.div> */}
+      </div>
+
       <div className="portfolio-more">
         <span>Load More</span>
         <img src={loadmore} alt="Load More" />
