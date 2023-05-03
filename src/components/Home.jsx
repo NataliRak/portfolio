@@ -27,7 +27,7 @@ export default function Home() {
         <div className="content">
           <div className="title">
             <h1>Hello, my name is Natali.</h1>
-            <h2> I am a Front-End Developer located in Israel.</h2>
+            <h2> I am a Full Stack Developer located in Israel.</h2>
           </div>
           <div className="subTitle">
             <p>
